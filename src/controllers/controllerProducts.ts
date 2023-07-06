@@ -22,11 +22,11 @@ export const controllers = {
     const skip = (pageNumber - 1) * limit;
   
     const [products, totalCount] = await Promise.all([
-      prisma.product.findMany({ // todos os produtos
+      prisma.product.findMany({ // todos os dados dos produtos
         skip,
         take: limit,
       }),
-      prisma.product.count(), // total de products
+      prisma.product.count(), // total de produtos
     ]);
     
     const totalPages = Math.ceil(totalCount / limit);
