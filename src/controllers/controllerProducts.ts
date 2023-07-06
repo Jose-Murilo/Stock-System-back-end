@@ -47,7 +47,7 @@ export const controllers = {
 
     // 
     for (const field of requiredFields) {
-      if (!req.body[field] && req.body[field] === "") {
+      if (!req.body[field] || req.body[field] === "") {
         return res.json({ message: `${field} is required` })
       }
     }
